@@ -3,9 +3,9 @@ const helmet = require('helmet');
 const cors = require('cors');
 
 //import all routers here:
-// const authenticate = require('../auth/auth-middleware.js');
-// const authRouter = require('../auth/auth-router.js');
-// const usersRouter = require('../users/users-router.js');
+
+const authRouter = require('../auth/auth-router.js');
+const usersRouter = require('../users/users-router.js');
 
 
 
