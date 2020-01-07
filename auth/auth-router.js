@@ -11,28 +11,30 @@ router.post('/register', (req, res) => {
     const hash = bcrypt.hashSync(user.password, 10); // 2 ^ n
     user.password = hash;
 
-    Users.add(user)
-        .then(saved => {
-            res.status(201).json(saved);
+    Users.insert(user)
+        .then(({ id }) => {
+            res.status(201).json({ status: 201, message: id });
         })
         .catch(error => {
-            res.status(500).json(error);
+            console.log(error);
         });
 });
 
 router.post('/login', (req, res) => {
     // implement login
-    let { username, password } = req.body;
+    let { email, password } = req.body;
 
-    Users.findBy({ username })
+    Users.getByEmail({ email })
         .first()
         .then(user => {
+            console.log('then', user)
             if (user && bcrypt.compareSync(password, user.password)) {
                 // sign token
                 const token = signToken(user); // new line
 
                 // send the token
                 res.status(200).json({
+                    id: user.id,
                     token, // added token as part of the response sent
                     message: `Welcome ${user.username}!`,
                 });
