@@ -36,11 +36,9 @@
 
 ```
 {
-    full_name: string, *REQUIRED*
-    email: string,     *REQUIRED*
+    username: string, *REQUIRED*
     password: string,  *REQUIRED*
-    phone: string,     *OPTIONAL*
-    location: string   *OPTIONAL*
+    
 }
 ```
 
