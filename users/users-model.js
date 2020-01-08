@@ -3,7 +3,6 @@ const db = require('../data/dbConfig');
 module.exports = {
     get,
     getById,
-    getByEmail,
     insert,
     update,
     remove
@@ -13,18 +12,12 @@ function get() {
     return db("users");
 }
 
-function getByEmail(email) {
-    return db('users')
-        .select("id", "username", "email", "password") // make sure to return the password
-        .where({ ...email })
-        .first();
-}
-
-function getById(id) {
+function getById(user) {
+    console.log(user)
     return db("users")
-        .select("id", "username", "email", "password")
-        .where({ id })
-        .first();
+        // .select("id", "username", "password")
+        .where({ "username": user.username })
+    // .first();
 
 }
 
