@@ -5,9 +5,8 @@ exports.seed = function (knex) {
     .then(function () {
       // Inserts seed entries
       return knex('strain').insert([
-        { id: 1, colName: 'rowValue1' },
-        { id: 2, colName: 'rowValue2' },
-        { id: 3, colName: 'rowValue3' }
+        { id: 1, user_id: 1, strain_name: '100-Og', strain_dose: '3g', intake_method: 'oral', intake_schedule: '2 times per day' },
+        { id: 2, user_id: 2, strain_name: 'Afgani', strain_dose: '2g', intake_method: 'topical', intake_schedule: '2 times per day' },
       ]);
     });
 };
