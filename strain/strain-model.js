@@ -19,8 +19,9 @@ function findById(id, strain_id) {
         .first();
 }
 
-function add(strain) {
+function add(strain, id) {
     return db('strain')
+        .where({ 'user_id': id })
         .insert(strain)
 }
 

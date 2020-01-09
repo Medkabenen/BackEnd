@@ -5,7 +5,7 @@ const Note = require('./note_model')
 router.get('/:strain_id', (req, res) => {
     const { strain_id } = req.params;
 
-    Notes.get(Number(strain_id))
+    Note.get(Number(strain_id))
         .then(notes => {
             console.log(notes);
             res.status(200).json(notes);
@@ -18,7 +18,7 @@ router.get('/:strain_id', (req, res) => {
 router.get('/:strain_id/:note_id', (req, res) => {
     const { strain_id, note_id } = req.params;
 
-    Notes.findById(strain_id, note_id)
+    Note.findById(strain_id, note_id)
         .then(note => {
             console.log(note)
             res.status(200).json(note);
@@ -32,7 +32,7 @@ router.get('/:strain_id/:note_id', (req, res) => {
 router.post('/:strain_id', (req, res) => {
     const strainNote = req.body;
 
-    Notes.add(strainNote)
+    Note.add(strainNote)
         .then(note => {
             res.status(201).json(note);
         })
@@ -45,7 +45,7 @@ router.put('/:strain_id/:note_id', (req, res) => {
     const { note_id } = req.params;
     const changes = req.body;
 
-    Notes.update(note_id, changes)
+    Note.update(note_id, changes)
         .then(update => {
             res.status(200).json(update);
         })
@@ -57,7 +57,7 @@ router.put('/:strain_id/:note_id', (req, res) => {
 router.delete('/:strain_id/:note_id', (req, res) => {
     const { note_id } = req.params;
 
-    Notes.remove(note_id)
+    Note.remove(note_id)
         .then(result => {
             res.status(200).json(result);
         })

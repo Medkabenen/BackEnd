@@ -8,7 +8,10 @@ router.get('/:id/strain', (req, res) => {
         .then(strains => {
             res.json(strains);
         })
-        .catch(err => res.send(err));
+        .catch(err => {
+            console.log(err);
+            res.send(err)
+        })
 })
 
 router.get('/:id/strain/:strain_id', (req, res) => {
@@ -26,8 +29,10 @@ router.get('/:id/strain/:strain_id', (req, res) => {
 
 router.post('/:id/strain', (req, res) => {
     const newStrain = req.body;
+    const id = req.params.id;
+
     console.log(newStrain)
-    Strain.add(newStrain)
+    Strain.add(newStrain, id)
         .then(strain => {
             res.status(201).json(strain);
         })

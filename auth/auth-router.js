@@ -24,7 +24,7 @@ router.post('/login', (req, res) => {
     // implement login
     let { username, password } = req.body;
 
-    Users.getById({ username })
+    Users.getBy({ username })
         .first()
         .then(user => {
             console.log('then', user)
