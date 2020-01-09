@@ -63,7 +63,7 @@
 | GET          | api/note/:strain_id/:note_id   | Get Specific Strain Note |
 | POST         | api/note/:strain_id            | Add Note For Strain      |
 | PUT          | api/note/:strain_id/:note_id   | Update Note Information |
-| DELETE       | api/note/:strain_id/:note_id   | Remove Plant Note       |
+| DELETE       | api/note/:strain_id/:note_id   | Remove Strain Note       |
 
 # API
 
