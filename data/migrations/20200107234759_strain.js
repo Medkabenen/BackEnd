@@ -6,9 +6,10 @@ exports.up = function (knex) {
 
         //string
         tbl.string('strain_name').notNullable();
-        tbl.string('strain_dose').notNullable();
-        tbl.string('intake_method').notNullable();
-        tbl.string('intake_schedule').notNullable();
+        tbl.string('strain_type').notNullable();
+        tbl.string('strain_description').notNullable();
+
+
 
 
         //int
