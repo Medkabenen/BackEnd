@@ -8,8 +8,6 @@ exports.up = function (knex) {
         tbl.string('username', 128)
             .notNullable();
 
-        tbl.string('email', 128)
-            .notNullable();
 
         tbl.string('password', 128)
             .notNullable();

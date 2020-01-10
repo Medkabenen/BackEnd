@@ -22,9 +22,9 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
     // implement login
-    let { email, password } = req.body;
+    let { username, password } = req.body;
 
-    Users.getByEmail({ email })
+    Users.getBy({ username })
         .first()
         .then(user => {
             console.log('then', user)
@@ -39,6 +39,7 @@ router.post('/login', (req, res) => {
                     message: `Welcome ${user.username}!`,
                 });
             } else {
+                console.log(user, username, password);
                 res.status(401).json({ message: "Invalid Credentials" });
             }
         })
@@ -72,7 +73,7 @@ function signToken(user) {
     const secret = process.env.JWT_SECRET || 'is it secret, is it safe?';
 
     const options = {
-        expiresIn: '1hr',
+        expiresIn: '24hr',
     };
 
     return jwt.sign(payload, secret, options);
