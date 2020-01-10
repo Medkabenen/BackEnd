@@ -31,7 +31,7 @@ router.post('/:id/strain', (req, res) => {
     const newStrain = req.body;
     const id = req.params.id;
 
-    console.log(newStrain)
+    console.log(req.body)
     Strain.add(newStrain, id)
         .then(strain => {
             res.status(201).json(strain);
